@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Profile - Trần Thị Thuỳ</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #43cea2, #185a9d, #a8e063);
+    color: white;
+    overflow-x: hidden;
+}
+
+/* dark mode */
+.dark {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+}
+
+/* container */
+.container {
+    max-width: 850px;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+
+/* header */
+.header {
+    text-align: center;
+}
+
+.icon-circle {
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #56ab2f, #a8e063);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    box-shadow: 0 0 25px #56ab2f;
+}
+
+.name {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+/* section */
+.section {
+    margin-top: 25px;
+}
+
+.section h2 {
+    border-left: 5px solid #a8e063;
+    padding-left: 10px;
+}
+
+/* tag */
+.tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.3);
+    padding: 8px 15px;
+    margin: 5px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.tag:hover {
+    background: #56ab2f;
+    transform: scale(1.1);
+}
+
+/* typing */
+.typing {
+    border-right: 3px solid white;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    animation: typing 4s steps(30) forwards, blink 0.7s infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink {
+    50% { border-color: transparent }
+}
+
+/* nút dark mode */
+.toggle-btn {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    background: white;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* tim bay */
+.heart {
+    position: fixed;
+    color: #a8e063;
+    animation: floatUp 2s linear forwards;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity: 1;}
+    100% { transform: translateY(-200px); opacity: 0;}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="toggle-btn" onclick="toggleMode()">🌙</div>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="icon-circle">🌿</div>
+        <div class="name">Trần Thị Thuỳ</div>
+        <p>Lớp: 12C1</p>
+    </div>
+
+    <!-- ĐỊNH HƯỚNG -->
+    <div class="section">
+        <h2>🎯 Định hướng</h2>
+        <p class="typing">Quản trị kinh doanh - UEL</p>
+    </div>
+
+    <!-- MỤC TIÊU -->
+    <div class="section">
+        <h2>🚀 Mục tiêu</h2>
+        <p>Đỗ đại học và đậu tốt nghiệp</p>
+    </div>
+
+    <!-- SỞ THÍCH -->
+    <div class="section">
+        <h2>💖 Sở thích</h2>
+        <div class="tag">🎬 Xem phim</div>
+        <div class="tag">🎧 Nghe nhạc</div>
+        <div class="tag">✈️ Du lịch</div>
+    </div>
+
+    <!-- KỸ NĂNG -->
+    <div class="section">
+        <h2>🔥 Kỹ năng</h2>
+        <div class="tag">🎨 Chỉnh sửa ảnh</div>
+    </div>
+
+</div>
+
+<script>
+function toggleMode() {
+    document.body.classList.toggle("dark");
+}
+
+/* click ra tim */
+document.addEventListener("click", function(e) {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "🍃";
+    heart.style.left = e.clientX + "px";
+    heart.style.top = e.clientY + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 2000);
+});
+</script>
+
+</body>
+</html>
